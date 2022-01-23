@@ -1,0 +1,16 @@
+@use "./normalize.css";
+@use "./heti.css";
+@use "./toolBox.css";
+
+.maxw-1280 {
+  max-width: 1280px;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.p-12 {
+  padding: 12px;
+}

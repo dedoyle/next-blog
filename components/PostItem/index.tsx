@@ -1,16 +1,25 @@
-import { PostItemData } from 'pages/api/post_list'
+import Link from "next/link";
+
+export type PostItemData = {
+  slug: string;
+  frontmatter: {
+    [k: string]: any;
+  };
+};
 
 type PostItemProps = {
-  data: PostItemData
-}
+  data: PostItemData;
+};
 
 const PostItem = ({ data }: PostItemProps) => {
   return (
-    <article className="bg-white dark:bg-slate-900 px-6 py-8">
-      <header className="text-lg">{data.title}</header>
-      <p className="text-base">{data.content}</p>
-    </article>
-  )
-}
+    <>
+      <h2>{data.frontmatter.title}</h2>
+      <div>{data.frontmatter.date}</div>
+      <p>{data.frontmatter.excerpt}</p>
+      <Link href={`/blog/${data.slug}`}>Read More</Link>
+    </>
+  );
+};
 
-export default PostItem
+export default PostItem;
